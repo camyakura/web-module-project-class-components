@@ -10,7 +10,7 @@ export default class Todo extends React.Component {
     return (
       <li key={todo.id} onClick={this.todoClick}>
         { todo.text }
-        { todo.completed ? <span>✔️</span> : <span></span>}
+        { todo.completed ? <span>✔️</span> : ''}
       </li>
     )
   }

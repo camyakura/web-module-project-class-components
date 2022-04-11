@@ -25,7 +25,7 @@ export default class App extends React.Component {
         if(todo.id === toggleId){
           return {
             ...todo,
-            completed: !todos.completed
+            completed: !todo.completed
           }
         }
         return todo
@@ -33,8 +33,12 @@ export default class App extends React.Component {
     })
   }
 
-  addTodo = () => {
-
+  addTodo = todo => {
+    const { todos } = this.state
+    const newTodo = { 
+      id:getIdx(), text:todo, completed: false 
+    }
+    this.setState({...this.state, todos:[...todos, newTodo]})
   }
 
   clearInput = () => {
@@ -51,7 +55,7 @@ export default class App extends React.Component {
 
         <TodoList todos={todos} todoToggle={this.todoToggle}/>
 
-        <Form />
+        <Form addTodo={this.addTodo}/>
 
         <button>Clear</button>
       </div>
