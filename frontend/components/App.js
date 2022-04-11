@@ -42,7 +42,11 @@ export default class App extends React.Component {
   }
 
   clearInput = () => {
-
+    this.setState({
+      ...this.state, todos: this.state.todos.filter(todo => {
+        return todo.completed === false
+      })
+    })
   }
 
   render() {
@@ -57,7 +61,7 @@ export default class App extends React.Component {
 
         <Form addTodo={this.addTodo}/>
 
-        <button>Clear</button>
+        <button onClick={this.clearInput}>Clear</button>
       </div>
     )
   }
