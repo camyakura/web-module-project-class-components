@@ -8,8 +8,8 @@ const getIdx = () => idx++
 
 const todos = [
   { id:getIdx(), text:'walk the dog', completed: false },
-  { id:getIdx(), text:'walk the dog', completed: false },
-  { id:getIdx(), text:'walk the dog', completed: false },
+  { id:getIdx(), text:'do homework', completed: false },
+  { id:getIdx(), text:'eat food', completed: false },
 ]
 
 const initialState = {
