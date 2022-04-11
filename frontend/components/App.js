@@ -19,8 +19,18 @@ const initialState = {
 export default class App extends React.Component {
   state = initialState
 
-  todoToggle = () => {
-
+  todoToggle = toggleId => {
+    this.setState({
+      ...this.state, todos: this.state.todos.map(todo => {
+        if(todo.id === toggleId){
+          return {
+            ...todo,
+            completed: !todos.completed
+          }
+        }
+        return todo
+      })
+    })
   }
 
   addTodo = () => {
@@ -39,7 +49,7 @@ export default class App extends React.Component {
       <div>
         <h1>Todo App</h1>
 
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} todoToggle={this.todoToggle}/>
 
         <Form />
 
